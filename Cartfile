@@ -1,0 +1,7 @@
+# Testing
+github "specta/specta"
+github "specta/expecta"
+github "erikdoe/ocmock"
+
+# Use next from v2.5 ReactiveCocoa commit for build by xcodebuild instead of download precompiled framework
+github "ReactiveCocoa/ReactiveCocoa" "1835932"

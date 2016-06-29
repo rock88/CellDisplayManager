@@ -1,0 +1,4 @@
+github "ReactiveCocoa/ReactiveCocoa" "18359329d4349b63781ea2e497408504dc79463a"
+github "specta/expecta" "v1.0.5"
+github "erikdoe/ocmock" "v3.3"
+github "specta/specta" "v1.0.5"
