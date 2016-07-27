@@ -9,6 +9,7 @@
 #import "CDMSection.h"
 #import "CDMFactory.h"
 #import "CDMItemChanges.h"
+#import "CDMSectionChangesProtocol.h"
 
 @interface CDMSection ()
 
@@ -17,7 +18,7 @@
 @end
 
 @implementation CDMSection
-@synthesize identifier, changeHandler;
+@synthesize identifier, delegate, hidden = _hidden;
 
 + (void)load {
     [CDMFactory registerClass:[self class] forProtocol:@protocol(CDMSectionProtocol)];
@@ -32,9 +33,7 @@
 }
 
 - (void)sendChanges:(CDMItemChanges *)changes {
-    if (self.changeHandler) {
-        self.changeHandler(self, changes);
-    }
+    [self.delegate section:self didChange:changes];
 }
 
 #pragma mark - Binding
@@ -58,6 +57,14 @@
 
 #pragma mark - CDMSectionProtocol
 
+- (void)setHidden:(BOOL)hidden {
+    if (_hidden != hidden) {
+        _hidden = hidden;
+        
+        [self.delegate sectionDidChangeAppearance:self];
+    }
+}
+
 - (NSArray<id<CDMItemProtocol>> *)items {
     return [NSArray arrayWithArray:_innerItems];
 }
@@ -75,15 +82,52 @@
 }
 
 - (void)addItems:(NSArray<id<CDMItemProtocol>> *)items {
-    
+    CDMItemChanges* changes = [[CDMItemChanges alloc] init];
+    for (id<CDMItemProtocol> item in items) {
+        if ([_innerItems containsObject:item]) {
+            [NSException raise:NSInternalInconsistencyException format:@"Not implement!"];
+        } else {
+            [self bind:item];
+            [_innerItems addObject:item];
+            [changes insertItem:[_innerItems indexOfObject:item]];
+        }
+    }
+    [self sendChanges:changes];
 }
 
 - (void)insertItems:(NSArray<id<CDMItemProtocol>> *)items atIndex:(NSUInteger)index {
-    
+    CDMItemChanges* changes = [[CDMItemChanges alloc] init];
+    [items enumerateObjectsUsingBlock:^(id<CDMItemProtocol> item, NSUInteger idx, BOOL* _) {
+        if ([_innerItems containsObject:item]) {
+            NSUInteger oldIndex = [_innerItems indexOfObject:item];
+            [_innerItems removeObject:item];
+            [_innerItems insertObject:item atIndex:index + idx];
+            [changes moveItem:oldIndex to:[_innerItems indexOfObject:item]];
+        } else {
+            [self bind:item];
+            [_innerItems insertObject:item atIndex:index + idx];
+            [changes insertItem:[_innerItems indexOfObject:item]];
+        }
+    }];
+    [self sendChanges:changes];
 }
 
 - (void)deleteItems:(NSArray<id<CDMItemProtocol>> *)items {
+    CDMItemChanges* changes = [[CDMItemChanges alloc] init];
     
+    NSMutableArray* innerItems = [NSMutableArray arrayWithArray:_innerItems];
+    for (id<CDMItemProtocol> item in items) {
+        if ([_innerItems containsObject:item]) {
+            [self unbind:item];
+            
+            NSUInteger index = [_innerItems indexOfObject:item];
+            [innerItems removeObject:item];
+            [changes deleteItem:index];
+        }
+    }
+    _innerItems = innerItems;
+    
+    [self sendChanges:changes];
 }
 
 @end

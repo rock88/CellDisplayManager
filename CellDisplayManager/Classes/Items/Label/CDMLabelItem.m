@@ -7,9 +7,14 @@
 //
 
 #import "CDMLabelItem.h"
+#import "CDMFactory.h"
 
 @implementation CDMLabelItem
 @synthesize cellClassName, cellNibName, identifier, appearance, changeHandler;
+
++ (void)load {
+    [CDMFactory registerClass:[self class] forProtocol:@protocol(CDMLabelItemProtocol)];
+}
 
 - (instancetype)init {
     self = [super init];
@@ -20,7 +25,7 @@
 }
 
 - (void)configureCell:(id<CDMCellProtocol>)cell {
-    
+    [self.appearance applyAppearance:cell];
 }
 
 @end

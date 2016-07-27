@@ -10,4 +10,7 @@
 
 @protocol CDMCellProtocol <NSObject>
 
+@property (nonatomic, readonly) UIView* contentView;
+@property (nonatomic) UIView* selectedBackgroundView;
+
 @end

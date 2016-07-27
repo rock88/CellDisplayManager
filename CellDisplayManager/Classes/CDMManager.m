@@ -11,10 +11,11 @@
 #import "CDMAdapter.h"
 #import "CDMSectionChanges.h"
 #import "CDMItemChanges.h"
+#import "CDMSectionChangesProtocol.h"
 
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
-@interface CDMManager ()
+@interface CDMManager () <CDMSectionChangesProtocol>
 
 @property (nonatomic) NSMutableArray<id<CDMSectionProtocol>> *innerSections;
 
@@ -32,20 +33,27 @@
 
 #pragma mark - Binding
 
-- (void)bindSection:(id<CDMSectionProtocol>)section {
-    [self unbindSection:section];
+- (void)bind:(id<CDMSectionProtocol>)section {
+    [self unbind:section];
     
-    __weak typeof(self) weak = self;
-    [section setChangeHandler:^(id<CDMSectionProtocol> section, CDMItemChanges* changes) {
-        if ([weak.sections containsObject:section]) {
-            changes.section = [weak.innerSections indexOfObject:section];
-            [changes apply:weak.adapter];
-        }
-    }];
+    section.delegate = self;
 }
 
-- (void)unbindSection:(id<CDMSectionProtocol>)section {
-    [section setChangeHandler:nil];
+- (void)unbind:(id<CDMSectionProtocol>)section {
+    section.delegate = nil;
+}
+
+#pragma mark - CDMSectionChangesProtocol
+
+- (void)sectionDidChangeAppearance:(id<CDMSectionProtocol>)section {
+    
+}
+
+- (void)section:(id<CDMSectionProtocol>)section didChange:(CDMItemChanges *)changes {
+    if ([self.sections containsObject:section]) {
+        changes.section = [self.innerSections indexOfObject:section];
+        [changes apply:self.adapter];
+    }
 }
 
 #pragma mark - CDMManagerProtocol
@@ -75,6 +83,7 @@
             [_innerSections addObject:section];
             [changes moveSection:index to:[_innerSections indexOfObject:section]];
         } else {
+            [self bind:section];
             [_innerSections addObject:section];
             [changes insertSection:[_innerSections indexOfObject:section]];
         }
@@ -91,6 +100,7 @@
             [_innerSections insertObject:section atIndex:index + idx];
             [changes moveSection:oldIndex to:[_innerSections indexOfObject:section]];
         } else {
+            [self bind:section];
             [_innerSections insertObject:section atIndex:index + idx];
             [changes insertSection:[_innerSections indexOfObject:section]];
         }
@@ -103,6 +113,8 @@
     NSMutableArray* innerSections = [NSMutableArray arrayWithArray:_innerSections];
     for (id<CDMSectionProtocol> section in sections) {
         if ([_innerSections containsObject:section]) {
+            [self unbind:section];
+            
             NSUInteger index = [_innerSections indexOfObject:section];
             [innerSections removeObject:section];
             [changes deleteSection:index];

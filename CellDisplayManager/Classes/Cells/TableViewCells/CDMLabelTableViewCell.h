@@ -6,8 +6,9 @@
 //  Copyright © 2016 rock88. All rights reserved.
 //
 
-#import "CDMTableViewCell.h"
+#import <UIKit/UIKit.h>
+#import "CDMLabelCellProtocol.h"
 
-@interface LabelCell : CDMTableViewCell
+@interface CDMLabelTableViewCell : UITableViewCell <CDMLabelCellProtocol>
 
 @end

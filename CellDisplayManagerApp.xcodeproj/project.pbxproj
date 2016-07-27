@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3604351A1D150BC700789EFE /* OCMock.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 363ECBB01D0C1D180020E2D5 /* OCMock.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		361346EF1D3A1E6900F05993 /* CDMTestsUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 361346EE1D3A1E6900F05993 /* CDMTestsUtils.m */; };
+		361346F11D3A1F0100F05993 /* CDMSectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 361346F01D3A1F0100F05993 /* CDMSectionTests.m */; };
+		361C3C381D3E94EF009614AC /* CDMSectionChangesProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 361C3C371D3E94EF009614AC /* CDMSectionChangesProtocol.h */; };
 		363ECB391D0C175F0020E2D5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 363ECB381D0C175F0020E2D5 /* main.m */; };
 		363ECB3C1D0C175F0020E2D5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 363ECB3B1D0C175F0020E2D5 /* AppDelegate.m */; };
 		363ECB3F1D0C175F0020E2D5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 363ECB3E1D0C175F0020E2D5 /* ViewController.m */; };
@@ -23,7 +26,9 @@
 		363ECBB61D0C1DDD0020E2D5 /* Expecta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 363ECBAF1D0C1D180020E2D5 /* Expecta.framework */; };
 		363ECBB91D0C1E080020E2D5 /* Expecta.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 363ECBAF1D0C1D180020E2D5 /* Expecta.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		363ECBBA1D0C1F2F0020E2D5 /* CellDisplayManager.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 363ECB611D0C17770020E2D5 /* CellDisplayManager.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		36593DA21D26F791009F79FF /* CDMLabelCellProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 36593DA11D26F791009F79FF /* CDMLabelCellProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3682C1B91D14508C0091F241 /* CDMManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3682C1B81D14508C0091F241 /* CDMManagerTests.m */; };
+		368E1DB41D27CB3E00F09A13 /* CDMLabelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 368E1DB31D27CB3E00F09A13 /* CDMLabelTableViewCell.xib */; };
 		3690E4D61D22DEF5001ABB60 /* CDMAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3690E4AB1D22DEF5001ABB60 /* CDMAdapter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3690E4D71D22DEF5001ABB60 /* CDMTableViewAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3690E4AC1D22DEF5001ABB60 /* CDMTableViewAdapter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3690E4D81D22DEF5001ABB60 /* CDMTableViewAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3690E4AD1D22DEF5001ABB60 /* CDMTableViewAdapter.m */; };
@@ -39,10 +44,8 @@
 		3690E4E21D22DEF5001ABB60 /* CDMManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3690E4B81D22DEF5001ABB60 /* CDMManager.m */; };
 		3690E4E31D22DEF5001ABB60 /* CDMManagerProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 3690E4B91D22DEF5001ABB60 /* CDMManagerProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3690E4E41D22DEF5001ABB60 /* CDMCellProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 3690E4BB1D22DEF5001ABB60 /* CDMCellProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3690E4E51D22DEF5001ABB60 /* CDMTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3690E4BD1D22DEF5001ABB60 /* CDMTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3690E4E61D22DEF5001ABB60 /* CDMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3690E4BE1D22DEF5001ABB60 /* CDMTableViewCell.m */; };
-		3690E4E71D22DEF5001ABB60 /* LabelCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3690E4BF1D22DEF5001ABB60 /* LabelCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3690E4E81D22DEF5001ABB60 /* LabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3690E4C01D22DEF5001ABB60 /* LabelCell.m */; };
+		3690E4E71D22DEF5001ABB60 /* CDMLabelTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3690E4BF1D22DEF5001ABB60 /* CDMLabelTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3690E4E81D22DEF5001ABB60 /* CDMLabelTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3690E4C01D22DEF5001ABB60 /* CDMLabelTableViewCell.m */; };
 		3690E4E91D22DEF5001ABB60 /* CDMSectionChanges.h in Headers */ = {isa = PBXBuildFile; fileRef = 3690E4C21D22DEF5001ABB60 /* CDMSectionChanges.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3690E4EA1D22DEF5001ABB60 /* CDMSectionChanges.m in Sources */ = {isa = PBXBuildFile; fileRef = 3690E4C31D22DEF5001ABB60 /* CDMSectionChanges.m */; };
 		3690E4EB1D22DEF5001ABB60 /* CDMItemAppearance.h in Headers */ = {isa = PBXBuildFile; fileRef = 3690E4C71D22DEF5001ABB60 /* CDMItemAppearance.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -56,11 +59,11 @@
 		3690E4F31D22DEF5001ABB60 /* CDMSection.h in Headers */ = {isa = PBXBuildFile; fileRef = 3690E4D11D22DEF5001ABB60 /* CDMSection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3690E4F41D22DEF5001ABB60 /* CDMSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 3690E4D21D22DEF5001ABB60 /* CDMSection.m */; };
 		3690E4F51D22DEF5001ABB60 /* CDMSectionProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 3690E4D31D22DEF5001ABB60 /* CDMSectionProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3690E4FB1D22DF89001ABB60 /* UITableView+CellDisplayManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 3690E4F91D22DF89001ABB60 /* UITableView+CellDisplayManager.h */; };
+		3690E4FB1D22DF89001ABB60 /* UITableView+CellDisplayManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 3690E4F91D22DF89001ABB60 /* UITableView+CellDisplayManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3690E4FC1D22DF89001ABB60 /* UITableView+CellDisplayManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3690E4FA1D22DF89001ABB60 /* UITableView+CellDisplayManager.m */; };
-		3690E4FF1D22E0D5001ABB60 /* CDMMoveChange.h in Headers */ = {isa = PBXBuildFile; fileRef = 3690E4FD1D22E0D5001ABB60 /* CDMMoveChange.h */; };
+		3690E4FF1D22E0D5001ABB60 /* CDMMoveChange.h in Headers */ = {isa = PBXBuildFile; fileRef = 3690E4FD1D22E0D5001ABB60 /* CDMMoveChange.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3690E5001D22E0D5001ABB60 /* CDMMoveChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 3690E4FE1D22E0D5001ABB60 /* CDMMoveChange.m */; };
-		3690E5031D22E13D001ABB60 /* CDMItemChanges.h in Headers */ = {isa = PBXBuildFile; fileRef = 3690E5011D22E13D001ABB60 /* CDMItemChanges.h */; };
+		3690E5031D22E13D001ABB60 /* CDMItemChanges.h in Headers */ = {isa = PBXBuildFile; fileRef = 3690E5011D22E13D001ABB60 /* CDMItemChanges.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3690E5041D22E13D001ABB60 /* CDMItemChanges.m in Sources */ = {isa = PBXBuildFile; fileRef = 3690E5021D22E13D001ABB60 /* CDMItemChanges.m */; };
 /* End PBXBuildFile section */
 
@@ -109,6 +112,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		361346ED1D3A1E6900F05993 /* CDMTestsUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CDMTestsUtils.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		361346EE1D3A1E6900F05993 /* CDMTestsUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDMTestsUtils.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		361346F01D3A1F0100F05993 /* CDMSectionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDMSectionTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		361C3C371D3E94EF009614AC /* CDMSectionChangesProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CDMSectionChangesProtocol.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		363ECB341D0C175F0020E2D5 /* CellDisplayManagerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CellDisplayManagerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		363ECB381D0C175F0020E2D5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = main.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		363ECB3A1D0C175F0020E2D5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = AppDelegate.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -129,7 +136,9 @@
 		363ECBAF1D0C1D180020E2D5 /* Expecta.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Expecta.framework; path = Carthage/Build/iOS/Expecta.framework; sourceTree = "<group>"; };
 		363ECBB01D0C1D180020E2D5 /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMock.framework; path = Carthage/Build/iOS/OCMock.framework; sourceTree = "<group>"; };
 		363ECBB11D0C1D180020E2D5 /* Specta.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Specta.framework; path = Carthage/Build/iOS/Specta.framework; sourceTree = "<group>"; };
+		36593DA11D26F791009F79FF /* CDMLabelCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CDMLabelCellProtocol.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		3682C1B81D14508C0091F241 /* CDMManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDMManagerTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		368E1DB31D27CB3E00F09A13 /* CDMLabelTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CDMLabelTableViewCell.xib; sourceTree = "<group>"; };
 		3690E4AB1D22DEF5001ABB60 /* CDMAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMAdapter.h; sourceTree = "<group>"; };
 		3690E4AC1D22DEF5001ABB60 /* CDMTableViewAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMTableViewAdapter.h; sourceTree = "<group>"; };
 		3690E4AD1D22DEF5001ABB60 /* CDMTableViewAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMTableViewAdapter.m; sourceTree = "<group>"; };
@@ -145,10 +154,8 @@
 		3690E4B81D22DEF5001ABB60 /* CDMManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMManager.m; sourceTree = "<group>"; };
 		3690E4B91D22DEF5001ABB60 /* CDMManagerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CDMManagerProtocol.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		3690E4BB1D22DEF5001ABB60 /* CDMCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CDMCellProtocol.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		3690E4BD1D22DEF5001ABB60 /* CDMTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMTableViewCell.h; sourceTree = "<group>"; };
-		3690E4BE1D22DEF5001ABB60 /* CDMTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMTableViewCell.m; sourceTree = "<group>"; };
-		3690E4BF1D22DEF5001ABB60 /* LabelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelCell.h; sourceTree = "<group>"; };
-		3690E4C01D22DEF5001ABB60 /* LabelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelCell.m; sourceTree = "<group>"; };
+		3690E4BF1D22DEF5001ABB60 /* CDMLabelTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMLabelTableViewCell.h; sourceTree = "<group>"; };
+		3690E4C01D22DEF5001ABB60 /* CDMLabelTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMLabelTableViewCell.m; sourceTree = "<group>"; };
 		3690E4C21D22DEF5001ABB60 /* CDMSectionChanges.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CDMSectionChanges.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		3690E4C31D22DEF5001ABB60 /* CDMSectionChanges.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDMSectionChanges.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		3690E4C71D22DEF5001ABB60 /* CDMItemAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CDMItemAppearance.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -247,6 +254,8 @@
 			isa = PBXGroup;
 			children = (
 				363ECB531D0C175F0020E2D5 /* Info.plist */,
+				361346ED1D3A1E6900F05993 /* CDMTestsUtils.h */,
+				361346EE1D3A1E6900F05993 /* CDMTestsUtils.m */,
 				363ECBAC1D0C1B050020E2D5 /* Binding */,
 				3682C1B71D14507C0091F241 /* DataDisplayManager */,
 			);
@@ -286,6 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				3682C1B81D14508C0091F241 /* CDMManagerTests.m */,
+				361346F01D3A1F0100F05993 /* CDMSectionTests.m */,
 			);
 			path = DataDisplayManager;
 			sourceTree = "<group>";
@@ -344,10 +354,10 @@
 		3690E4BC1D22DEF5001ABB60 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				3690E4BD1D22DEF5001ABB60 /* CDMTableViewCell.h */,
-				3690E4BE1D22DEF5001ABB60 /* CDMTableViewCell.m */,
-				3690E4BF1D22DEF5001ABB60 /* LabelCell.h */,
-				3690E4C01D22DEF5001ABB60 /* LabelCell.m */,
+				36593DA11D26F791009F79FF /* CDMLabelCellProtocol.h */,
+				3690E4BF1D22DEF5001ABB60 /* CDMLabelTableViewCell.h */,
+				3690E4C01D22DEF5001ABB60 /* CDMLabelTableViewCell.m */,
+				368E1DB31D27CB3E00F09A13 /* CDMLabelTableViewCell.xib */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -387,11 +397,11 @@
 		3690E4CA1D22DEF5001ABB60 /* Label */ = {
 			isa = PBXGroup;
 			children = (
+				3690E4CF1D22DEF5001ABB60 /* CDMLabelItemProtocol.h */,
 				3690E4CB1D22DEF5001ABB60 /* CDMLabelItem.h */,
 				3690E4CC1D22DEF5001ABB60 /* CDMLabelItem.m */,
 				3690E4CD1D22DEF5001ABB60 /* CDMLabelItemAppearance.h */,
 				3690E4CE1D22DEF5001ABB60 /* CDMLabelItemAppearance.m */,
-				3690E4CF1D22DEF5001ABB60 /* CDMLabelItemProtocol.h */,
 			);
 			path = Label;
 			sourceTree = "<group>";
@@ -399,6 +409,7 @@
 		3690E4D01D22DEF5001ABB60 /* Sections */ = {
 			isa = PBXGroup;
 			children = (
+				361C3C371D3E94EF009614AC /* CDMSectionChangesProtocol.h */,
 				3690E4D31D22DEF5001ABB60 /* CDMSectionProtocol.h */,
 				3690E4D11D22DEF5001ABB60 /* CDMSection.h */,
 				3690E4D21D22DEF5001ABB60 /* CDMSection.m */,
@@ -422,26 +433,27 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3690E4FF1D22E0D5001ABB60 /* CDMMoveChange.h in Headers */,
 				3690E4E31D22DEF5001ABB60 /* CDMManagerProtocol.h in Headers */,
 				3690E4F51D22DEF5001ABB60 /* CDMSectionProtocol.h in Headers */,
 				3690E4F21D22DEF5001ABB60 /* CDMLabelItemProtocol.h in Headers */,
 				3690E4D91D22DEF5001ABB60 /* CDMBind.h in Headers */,
 				3690E4F31D22DEF5001ABB60 /* CDMSection.h in Headers */,
 				3690E4F01D22DEF5001ABB60 /* CDMLabelItemAppearance.h in Headers */,
-				3690E5031D22E13D001ABB60 /* CDMItemChanges.h in Headers */,
 				3690E4E11D22DEF5001ABB60 /* CDMManager.h in Headers */,
 				3690E4ED1D22DEF5001ABB60 /* CDMItemProtocol.h in Headers */,
 				3690E4DB1D22DEF5001ABB60 /* CDMBindValue.h in Headers */,
 				3690E4EB1D22DEF5001ABB60 /* CDMItemAppearance.h in Headers */,
 				3690E4E91D22DEF5001ABB60 /* CDMSectionChanges.h in Headers */,
 				3690E4EE1D22DEF5001ABB60 /* CDMLabelItem.h in Headers */,
-				3690E4E51D22DEF5001ABB60 /* CDMTableViewCell.h in Headers */,
-				3690E4E71D22DEF5001ABB60 /* LabelCell.h in Headers */,
+				3690E4FF1D22E0D5001ABB60 /* CDMMoveChange.h in Headers */,
+				361C3C381D3E94EF009614AC /* CDMSectionChangesProtocol.h in Headers */,
+				36593DA21D26F791009F79FF /* CDMLabelCellProtocol.h in Headers */,
+				3690E5031D22E13D001ABB60 /* CDMItemChanges.h in Headers */,
+				3690E4FB1D22DF89001ABB60 /* UITableView+CellDisplayManager.h in Headers */,
+				3690E4E71D22DEF5001ABB60 /* CDMLabelTableViewCell.h in Headers */,
 				3690E4DD1D22DEF5001ABB60 /* CDMCompoundBinding.h in Headers */,
 				3690E4D71D22DEF5001ABB60 /* CDMTableViewAdapter.h in Headers */,
 				3690E4DF1D22DEF5001ABB60 /* CDMFactory.h in Headers */,
-				3690E4FB1D22DF89001ABB60 /* UITableView+CellDisplayManager.h in Headers */,
 				3690E4E41D22DEF5001ABB60 /* CDMCellProtocol.h in Headers */,
 				363ECB641D0C17770020E2D5 /* CellDisplayManager.h in Headers */,
 				3690E4D61D22DEF5001ABB60 /* CDMAdapter.h in Headers */,
@@ -571,6 +583,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				368E1DB41D27CB3E00F09A13 /* CDMLabelTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -591,8 +604,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				361346F11D3A1F0100F05993 /* CDMSectionTests.m in Sources */,
 				3682C1B91D14508C0091F241 /* CDMManagerTests.m in Sources */,
 				363ECBAE1D0C1B290020E2D5 /* CDMBindTests.m in Sources */,
+				361346EF1D3A1E6900F05993 /* CDMTestsUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -613,9 +628,8 @@
 				3690E4EA1D22DEF5001ABB60 /* CDMSectionChanges.m in Sources */,
 				3690E4DE1D22DEF5001ABB60 /* CDMCompoundBinding.m in Sources */,
 				3690E4FC1D22DF89001ABB60 /* UITableView+CellDisplayManager.m in Sources */,
-				3690E4E81D22DEF5001ABB60 /* LabelCell.m in Sources */,
+				3690E4E81D22DEF5001ABB60 /* CDMLabelTableViewCell.m in Sources */,
 				3690E5001D22E0D5001ABB60 /* CDMMoveChange.m in Sources */,
-				3690E4E61D22DEF5001ABB60 /* CDMTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

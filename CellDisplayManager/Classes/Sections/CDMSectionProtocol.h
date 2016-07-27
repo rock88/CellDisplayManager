@@ -10,6 +10,7 @@
 
 @class CDMItemChanges;
 @protocol CDMItemProtocol;
+@protocol CDMSectionChangesProtocol;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -31,7 +32,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  */
 
-@property (nonatomic, copy, nullable) void(^changeHandler)(id<CDMSectionProtocol> section, CDMItemChanges* changes);
+@property (nonatomic) BOOL hidden;
+
+/**
+ *
+ */
+
+@property (nonatomic, weak) id<CDMSectionChangesProtocol> delegate;
 
 - (void)addItem:(id<CDMItemProtocol>)item;
 - (void)insertItem:(id<CDMItemProtocol>)item atIndex:(NSUInteger)index;

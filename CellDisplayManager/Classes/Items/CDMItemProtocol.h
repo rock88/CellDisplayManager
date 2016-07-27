@@ -42,7 +42,11 @@ NS_ASSUME_NONNULL_BEGIN
  *
  */
 
-@property (nonatomic,readonly) CDMItemAppearance* appearance;
+@property (nonatomic, readonly) CDMItemAppearance* appearance;
+
+/**
+ *
+ */
 
 - (void)configureCell:(id<CDMCellProtocol>)cell;
 

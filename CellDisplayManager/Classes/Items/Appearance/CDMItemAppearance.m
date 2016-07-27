@@ -7,15 +7,25 @@
 //
 
 #import "CDMItemAppearance.h"
+#import "CDMCellProtocol.h"
 
 @implementation CDMItemAppearance
 
 - (instancetype)init {
     self = [super init];
     if (self) {
-        
+        _selectionStyle = CDMItemAppearanceSelectionStyleDefault;
     }
     return self;
+}
+
+- (void)applyAppearance:(id<CDMCellProtocol>)cell {
+    if (cell.selectedBackgroundView == nil) {
+        cell.selectedBackgroundView = [[UIView alloc] init];
+    }
+    
+    cell.selectedBackgroundView.backgroundColor = self.selectedColor;
+    cell.contentView.backgroundColor = self.backgroundColor;
 }
 
 @end

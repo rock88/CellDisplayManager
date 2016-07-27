@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol CDMCellProtocol;
+
+typedef NS_ENUM(NSInteger, CDMItemAppearanceSelectionStyle) {
+    CDMItemAppearanceSelectionStyleNone,
+    CDMItemAppearanceSelectionStyleBlue,
+    CDMItemAppearanceSelectionStyleGray,
+    CDMItemAppearanceSelectionStyleDefault
+};
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CDMItemAppearance : NSObject
@@ -41,6 +50,18 @@ NS_ASSUME_NONNULL_BEGIN
  */
 
 @property (nonatomic, nullable) UIColor* selectedColor;
+
+/**
+ *
+ */
+
+@property (nonatomic) CDMItemAppearanceSelectionStyle selectionStyle;
+
+/**
+ *
+ */
+
+- (void)applyAppearance:(id<CDMCellProtocol>)cell;
 
 @end
 

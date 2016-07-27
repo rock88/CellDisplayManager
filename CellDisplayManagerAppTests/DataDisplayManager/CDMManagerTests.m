@@ -10,21 +10,8 @@
 @import Expecta;
 @import OCMock;
 
+#import "CDMTestsUtils.h"
 #import <CellDisplayManager/CellDisplayManager.h>
-
-NS_REQUIRES_NIL_TERMINATION NS_INLINE NSIndexSet* NSIndexSetForSections(NSNumber* section, ...) {
-    NSMutableIndexSet* indexSet = [NSMutableIndexSet indexSetWithIndex:section.integerValue];
-    
-    va_list list;
-    va_start(list, section);
-    
-    while ((section = va_arg(list, NSNumber*))) {
-        [indexSet addIndex:section.integerValue];
-    }
-    
-    va_end(list);
-    return indexSet;
-}
 
 @interface CDMManagerTests : XCTestCase
 
@@ -60,7 +47,7 @@ NS_REQUIRES_NIL_TERMINATION NS_INLINE NSIndexSet* NSIndexSetForSections(NSNumber
     expect([self.manager numberOfSections]).to.equal(1);
     expect([self.manager sectionItemForSection:0]).to.equal(section1);
     
-    OCMVerify([self.adapter insertSections:NSIndexSetForSections(@0, nil)]);
+    OCMVerify([self.adapter insertSections:CDMIndexSetForSections(@0, nil)]);
     
     [self.manager addSection:section1];
     expect([self.manager numberOfSections]).to.equal(1);
@@ -70,7 +57,7 @@ NS_REQUIRES_NIL_TERMINATION NS_INLINE NSIndexSet* NSIndexSetForSections(NSNumber
     expect([self.manager numberOfSections]).to.equal(2);
     expect([self.manager sectionItemForSection:1]).to.equal(section2);
     
-    OCMVerify([self.adapter insertSections:NSIndexSetForSections(@1, nil)]);
+    OCMVerify([self.adapter insertSections:CDMIndexSetForSections(@1, nil)]);
 }
 
 - (void)testAddSections {
@@ -83,7 +70,7 @@ NS_REQUIRES_NIL_TERMINATION NS_INLINE NSIndexSet* NSIndexSetForSections(NSNumber
     expect([self.manager sectionItemForSection:0]).to.equal(section1);
     expect([self.manager sectionItemForSection:1]).to.equal(section2);
     
-    OCMVerify([self.adapter insertSections:(NSIndexSetForSections(@0, @1, nil))]);
+    OCMVerify([self.adapter insertSections:CDMIndexSetForSections(@0, @1, nil)]);
 }
 
 - (void)testAddExistSections {
@@ -95,14 +82,14 @@ NS_REQUIRES_NIL_TERMINATION NS_INLINE NSIndexSet* NSIndexSetForSections(NSNumber
     [self.manager addSections:@[section1, section2, section2]];
     expect([self.manager numberOfSections]).to.equal(2);
     
-    OCMVerify([self.adapter insertSections:NSIndexSetForSections(@0, @1, nil)]);
+    OCMVerify([self.adapter insertSections:CDMIndexSetForSections(@0, @1, nil)]);
     
     
     [self.manager addSections:@[section1, section3, section4]];
     expect([self.manager numberOfSections]).to.equal(4);
     
     OCMVerify([self.adapter moveSection:0 toSection:1]);
-    OCMVerify([self.adapter insertSections:NSIndexSetForSections(@2, @3, nil)]);
+    OCMVerify([self.adapter insertSections:CDMIndexSetForSections(@2, @3, nil)]);
 }
 
 #pragma mark - Insert
@@ -115,13 +102,13 @@ NS_REQUIRES_NIL_TERMINATION NS_INLINE NSIndexSet* NSIndexSetForSections(NSNumber
     expect([self.manager numberOfSections]).to.equal(1);
     expect([self.manager sectionItemForSection:0]).to.equal(section1);
     
-    OCMVerify([self.adapter insertSections:NSIndexSetForSections(@0, nil)]);
+    OCMVerify([self.adapter insertSections:CDMIndexSetForSections(@0, nil)]);
     
     [self.manager insertSection:section2 atIndex:1];
     expect([self.manager numberOfSections]).to.equal(2);
     expect([self.manager sectionItemForSection:1]).to.equal(section2);
     
-    OCMVerify([self.adapter insertSections:NSIndexSetForSections(@1, nil)]);
+    OCMVerify([self.adapter insertSections:CDMIndexSetForSections(@1, nil)]);
 }
 
 - (void)testInsertSections {
@@ -136,7 +123,7 @@ NS_REQUIRES_NIL_TERMINATION NS_INLINE NSIndexSet* NSIndexSetForSections(NSNumber
     expect([self.manager sectionItemForSection:0]).to.equal(section3);
     expect([self.manager sectionItemForSection:1]).to.equal(section4);
     
-    OCMVerify([self.adapter insertSections:NSIndexSetForSections(@0, @1, nil)]);
+    OCMVerify([self.adapter insertSections:CDMIndexSetForSections(@0, @1, nil)]);
     
     [self.manager insertSections:@[section1, section2] atIndex:0];
     
@@ -146,7 +133,7 @@ NS_REQUIRES_NIL_TERMINATION NS_INLINE NSIndexSet* NSIndexSetForSections(NSNumber
     expect([self.manager sectionItemForSection:2]).to.equal(section3);
     expect([self.manager sectionItemForSection:3]).to.equal(section4);
     
-    OCMVerify([self.adapter insertSections:NSIndexSetForSections(@0, @1, nil)]);
+    OCMVerify([self.adapter insertSections:CDMIndexSetForSections(@0, @1, nil)]);
 }
 
 - (void)testInsertExistSections {
@@ -160,7 +147,7 @@ NS_REQUIRES_NIL_TERMINATION NS_INLINE NSIndexSet* NSIndexSetForSections(NSNumber
     [self.manager insertSections:@[section1, section2, section3] atIndex:0];
     
     expect([self.manager numberOfSections]).to.equal(3);
-    OCMVerify([self.adapter insertSections:NSIndexSetForSections(@0, @1, @2, nil)]);
+    OCMVerify([self.adapter insertSections:CDMIndexSetForSections(@0, @1, @2, nil)]);
     
     
     [self.manager insertSections:@[section3, section4, section5, section6] atIndex:1];
@@ -173,7 +160,7 @@ NS_REQUIRES_NIL_TERMINATION NS_INLINE NSIndexSet* NSIndexSetForSections(NSNumber
     expect([self.manager sectionItemForSection:4]).to.equal(section6);
     expect([self.manager sectionItemForSection:5]).to.equal(section2);
     
-    OCMVerify([self.adapter insertSections:NSIndexSetForSections(@2, @3, @4, nil)]);
+    OCMVerify([self.adapter insertSections:CDMIndexSetForSections(@2, @3, @4, nil)]);
     OCMVerify([self.adapter moveSection:2 toSection:1]);
 }
 
@@ -190,7 +177,7 @@ NS_REQUIRES_NIL_TERMINATION NS_INLINE NSIndexSet* NSIndexSetForSections(NSNumber
     expect([self.manager numberOfSections]).to.equal(1);
     expect([self.manager sectionItemForSection:0]).to.equal(section2);
     
-    OCMVerify([self.adapter deleteSections:NSIndexSetForSections(@0, nil)]);
+    OCMVerify([self.adapter deleteSections:CDMIndexSetForSections(@0, nil)]);
 }
 
 - (void)testDeleteSections {
@@ -205,7 +192,7 @@ NS_REQUIRES_NIL_TERMINATION NS_INLINE NSIndexSet* NSIndexSetForSections(NSNumber
     expect([self.manager numberOfSections]).to.equal(1);
     expect([self.manager sectionItemForSection:0]).to.equal(section2);
     
-    OCMVerify([self.adapter deleteSections:NSIndexSetForSections(@0, @2, nil)]);
+    OCMVerify([self.adapter deleteSections:CDMIndexSetForSections(@0, @2, nil)]);
 }
 
 @end

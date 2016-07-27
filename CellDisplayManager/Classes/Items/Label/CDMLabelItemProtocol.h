@@ -11,6 +11,6 @@
 
 @protocol CDMLabelItemProtocol <CDMItemProtocol>
 
-@property (nonatomic,readonly) CDMLabelItemAppearance* appearance;
+@property (nonatomic, readonly) CDMLabelItemAppearance* appearance;
 
 @end
