@@ -10,7 +10,10 @@
 		3604351A1D150BC700789EFE /* OCMock.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 363ECBB01D0C1D180020E2D5 /* OCMock.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		361346EF1D3A1E6900F05993 /* CDMTestsUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 361346EE1D3A1E6900F05993 /* CDMTestsUtils.m */; };
 		361346F11D3A1F0100F05993 /* CDMSectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 361346F01D3A1F0100F05993 /* CDMSectionTests.m */; };
-		361C3C381D3E94EF009614AC /* CDMSectionChangesProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 361C3C371D3E94EF009614AC /* CDMSectionChangesProtocol.h */; };
+		361C3C381D3E94EF009614AC /* CDMSectionChangesProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 361C3C371D3E94EF009614AC /* CDMSectionChangesProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3636844E1D5A075B0002AD37 /* NSSet+CellDisplayManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 3636844C1D5A075B0002AD37 /* NSSet+CellDisplayManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3636844F1D5A075B0002AD37 /* NSSet+CellDisplayManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3636844D1D5A075B0002AD37 /* NSSet+CellDisplayManager.m */; };
+		363684521D5A0B210002AD37 /* CDMNSSetDiffTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 363684511D5A0B210002AD37 /* CDMNSSetDiffTests.m */; };
 		363ECB391D0C175F0020E2D5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 363ECB381D0C175F0020E2D5 /* main.m */; };
 		363ECB3C1D0C175F0020E2D5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 363ECB3B1D0C175F0020E2D5 /* AppDelegate.m */; };
 		363ECB3F1D0C175F0020E2D5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 363ECB3E1D0C175F0020E2D5 /* ViewController.m */; };
@@ -116,6 +119,9 @@
 		361346EE1D3A1E6900F05993 /* CDMTestsUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDMTestsUtils.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		361346F01D3A1F0100F05993 /* CDMSectionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDMSectionTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		361C3C371D3E94EF009614AC /* CDMSectionChangesProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CDMSectionChangesProtocol.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		3636844C1D5A075B0002AD37 /* NSSet+CellDisplayManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet+CellDisplayManager.h"; sourceTree = "<group>"; };
+		3636844D1D5A075B0002AD37 /* NSSet+CellDisplayManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+CellDisplayManager.m"; sourceTree = "<group>"; };
+		363684511D5A0B210002AD37 /* CDMNSSetDiffTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMNSSetDiffTests.m; sourceTree = "<group>"; };
 		363ECB341D0C175F0020E2D5 /* CellDisplayManagerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CellDisplayManagerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		363ECB381D0C175F0020E2D5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = main.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		363ECB3A1D0C175F0020E2D5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = AppDelegate.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -205,6 +211,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		363684501D5A0B0D0002AD37 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				363684511D5A0B210002AD37 /* CDMNSSetDiffTests.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
 		363ECB2B1D0C175F0020E2D5 = {
 			isa = PBXGroup;
 			children = (
@@ -258,6 +272,7 @@
 				361346EE1D3A1E6900F05993 /* CDMTestsUtils.m */,
 				363ECBAC1D0C1B050020E2D5 /* Binding */,
 				3682C1B71D14507C0091F241 /* DataDisplayManager */,
+				363684501D5A0B0D0002AD37 /* Categories */,
 			);
 			path = CellDisplayManagerAppTests;
 			sourceTree = "<group>";
@@ -422,6 +437,8 @@
 			children = (
 				3690E4F91D22DF89001ABB60 /* UITableView+CellDisplayManager.h */,
 				3690E4FA1D22DF89001ABB60 /* UITableView+CellDisplayManager.m */,
+				3636844C1D5A075B0002AD37 /* NSSet+CellDisplayManager.h */,
+				3636844D1D5A075B0002AD37 /* NSSet+CellDisplayManager.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -446,7 +463,6 @@
 				3690E4E91D22DEF5001ABB60 /* CDMSectionChanges.h in Headers */,
 				3690E4EE1D22DEF5001ABB60 /* CDMLabelItem.h in Headers */,
 				3690E4FF1D22E0D5001ABB60 /* CDMMoveChange.h in Headers */,
-				361C3C381D3E94EF009614AC /* CDMSectionChangesProtocol.h in Headers */,
 				36593DA21D26F791009F79FF /* CDMLabelCellProtocol.h in Headers */,
 				3690E5031D22E13D001ABB60 /* CDMItemChanges.h in Headers */,
 				3690E4FB1D22DF89001ABB60 /* UITableView+CellDisplayManager.h in Headers */,
@@ -454,6 +470,8 @@
 				3690E4DD1D22DEF5001ABB60 /* CDMCompoundBinding.h in Headers */,
 				3690E4D71D22DEF5001ABB60 /* CDMTableViewAdapter.h in Headers */,
 				3690E4DF1D22DEF5001ABB60 /* CDMFactory.h in Headers */,
+				3636844E1D5A075B0002AD37 /* NSSet+CellDisplayManager.h in Headers */,
+				361C3C381D3E94EF009614AC /* CDMSectionChangesProtocol.h in Headers */,
 				3690E4E41D22DEF5001ABB60 /* CDMCellProtocol.h in Headers */,
 				363ECB641D0C17770020E2D5 /* CellDisplayManager.h in Headers */,
 				3690E4D61D22DEF5001ABB60 /* CDMAdapter.h in Headers */,
@@ -606,6 +624,7 @@
 			files = (
 				361346F11D3A1F0100F05993 /* CDMSectionTests.m in Sources */,
 				3682C1B91D14508C0091F241 /* CDMManagerTests.m in Sources */,
+				363684521D5A0B210002AD37 /* CDMNSSetDiffTests.m in Sources */,
 				363ECBAE1D0C1B290020E2D5 /* CDMBindTests.m in Sources */,
 				361346EF1D3A1E6900F05993 /* CDMTestsUtils.m in Sources */,
 			);
@@ -629,6 +648,7 @@
 				3690E4DE1D22DEF5001ABB60 /* CDMCompoundBinding.m in Sources */,
 				3690E4FC1D22DF89001ABB60 /* UITableView+CellDisplayManager.m in Sources */,
 				3690E4E81D22DEF5001ABB60 /* CDMLabelTableViewCell.m in Sources */,
+				3636844F1D5A075B0002AD37 /* NSSet+CellDisplayManager.m in Sources */,
 				3690E5001D22E0D5001ABB60 /* CDMMoveChange.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

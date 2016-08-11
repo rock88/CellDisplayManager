@@ -38,3 +38,4 @@ FOUNDATION_EXPORT const unsigned char CellDisplayManagerVersionString[];
 #import <CellDisplayManager/CDMLabelCellProtocol.h>
 #import <CellDisplayManager/CDMLabelTableViewCell.h>
 #import <CellDisplayManager/UITableView+CellDisplayManager.h>
+#import <CellDisplayManager/NSSet+CellDisplayManager.h>
