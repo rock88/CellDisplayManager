@@ -6,12 +6,32 @@
 //  Copyright © 2016 rock88. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-protocol AppearanceProtocol {
+protocol AppearanceAppled {
     
 }
 
-class Appearance : AppearanceProtocol {
+protocol Appearance {
+    var backgroundColor: UIColor? { get }
+    var borderColor: UIColor? { get }
+    func apply(any: AppearanceAppled)
+}
+
+extension Appearance {
+    var borderColor: UIColor? {
+        return UIColor.clear
+    }
+}
+
+struct LabelAppearance : Appearance {
+    var title: NSString?
+    var attributedTitle: NSString?
+    var font: UIFont?
+    var textColor: UIColor?
+    var backgroundColor: UIColor?
     
+    func apply(any: AppearanceAppled) {
+        
+    }
 }

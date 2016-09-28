@@ -8,40 +8,77 @@
 
 import Foundation
 
-protocol AdapterOutput {
-    func numberOfSections() -> Int
-    func numberOfItems(inSection section: Int) -> Int
-    func section(at index: Int) -> SectionProtocol
-    func item(at indexPath: IndexPath) -> ItemProtocol
-}
-
 public class Manager {
+    private var innerSections = NSMutableOrderedSet()
+    private var adapter: AdapterOutput?
     
-    private var innerSections = [SectionProtocol]()
+    var test = MutableOrderedSet<SectionProtocol>()
     
-    func add(section: SectionProtocol) {
-        add(sections: [section])
-    }
-    
-    func add(sections: [SectionProtocol]) {
+    public init() {
         
     }
 }
 
-extension Manager : AdapterOutput {
-    func numberOfSections() -> Int {
+extension Manager {
+    func add(section: SectionProtocol) {
+        add(sections: [section])
+    }
+    
+    func insert(section: SectionProtocol, at index:Int) {
+        insert(sections: [section], at: index)
+    }
+    
+    func delete(section: SectionProtocol) {
+        delete(sections: [section])
+    }
+    
+    func add(sections: [SectionProtocol]) {
+        let set = NSOrderedSet(orderedSet: innerSections)
+        innerSections.addObjects(from: sections.toAraryOfObjects())
+        
+        if let adapter = adapter {
+            let changes = innerSections.changes(other: set)
+            changes.apply(adapter: adapter)
+        }
+    }
+    
+    func insert(sections: [SectionProtocol], at index:Int) {
+        let set = NSOrderedSet(orderedSet: innerSections)
+        innerSections.insert(sections.toAraryOfObjects(), at: index)
+        
+        if let adapter = adapter {
+            let changes = innerSections.changes(other: set)
+            changes.apply(adapter: adapter)
+        }
+    }
+    
+    func delete(sections: [SectionProtocol]) {
+        let set = NSOrderedSet(orderedSet: innerSections)
+        innerSections.removeObjects(in: sections.toAraryOfObjects())
+        
+        if let adapter = adapter {
+            let changes = innerSections.changes(other: set)
+            changes.apply(adapter: adapter)
+        }
+    }
+}
+
+extension Manager : AdapterInput {
+    public func numberOfSections() -> Int {
         return innerSections.count
     }
     
-    func numberOfItems(inSection section: Int) -> Int {
-        return innerSections[section].numberOfItem()
+    public func numberOfItems(inSection section: Int) -> Int {
+        let section = innerSections[section] as! SectionProtocol
+        return section.numberOfItem()
     }
     
-    func section(at index: Int) -> SectionProtocol {
-        return innerSections[index]
+    public func section(at index: Int) -> SectionProtocol {
+        return innerSections[index] as! SectionProtocol
     }
     
-    func item(at indexPath: IndexPath) -> ItemProtocol {
-        return innerSections[indexPath.section].item(at: indexPath.row)
+    public func item(at indexPath: IndexPath) -> ItemProtocol {
+        let section = innerSections[indexPath.section] as! SectionProtocol
+        return section.item(at: indexPath.row)
     }
 }

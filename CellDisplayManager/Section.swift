@@ -8,13 +8,13 @@
 
 import Foundation
 
-public protocol SectionProtocol {
+public protocol SectionProtocol : AnyObject {
     func numberOfItem() -> Int
     func item(at index: Int) -> ItemProtocol
 }
 
 public class Section {
-    private var innerItems = [ItemProtocol]()
+    private var innerItems = NSMutableOrderedSet()
     
 }
 
@@ -24,6 +24,6 @@ extension Section : SectionProtocol {
     }
     
     public func item(at index: Int) -> ItemProtocol {
-        return innerItems[index]
+        return innerItems[index] as! ItemProtocol
     }
 }

@@ -10,12 +10,14 @@ import UIKit
 import CellDisplayManager
 
 class ViewController: UIViewController {
-    let manager:CellDisplayManager.Manager? = nil
+    @IBOutlet var tableView: UITableView!
+    var manager: Manager? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        //let adapter = TableViewAdapter(tableView: tableView)
+        manager = Manager()
     }
     
 }
