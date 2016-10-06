@@ -8,13 +8,13 @@
 
 import Foundation
 
-public protocol SectionProtocol : AnyObject {
+public protocol SectionProtocol : class {
     func numberOfItem() -> Int
     func item(at index: Int) -> ItemProtocol
 }
 
 public class Section {
-    private var innerItems = NSMutableOrderedSet()
+    fileprivate var innerItems = NSMutableOrderedSet()
     
 }
 

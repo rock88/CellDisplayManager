@@ -33,38 +33,38 @@ extension Manager {
     }
     
     func add(sections: [SectionProtocol]) {
-        let set = NSOrderedSet(orderedSet: innerSections)
+        /*let set = NSOrderedSet(orderedSet: innerSections)
         innerSections.addObjects(from: sections.toAraryOfObjects())
         
         if let adapter = adapter {
             let changes = innerSections.changes(other: set)
             changes.apply(adapter: adapter)
-        }
+        }*/
     }
     
     func insert(sections: [SectionProtocol], at index:Int) {
-        let set = NSOrderedSet(orderedSet: innerSections)
+        /*let set = NSOrderedSet(orderedSet: innerSections)
         innerSections.insert(sections.toAraryOfObjects(), at: index)
         
         if let adapter = adapter {
             let changes = innerSections.changes(other: set)
             changes.apply(adapter: adapter)
-        }
+        }*/
     }
     
     func delete(sections: [SectionProtocol]) {
-        let set = NSOrderedSet(orderedSet: innerSections)
+        /*let set = NSOrderedSet(orderedSet: innerSections)
         innerSections.removeObjects(in: sections.toAraryOfObjects())
         
         if let adapter = adapter {
             let changes = innerSections.changes(other: set)
             changes.apply(adapter: adapter)
-        }
+        }*/
     }
 }
 
 extension Manager : AdapterInput {
-    public func numberOfSections() -> Int {
+    /*public func numberOfSections() -> Int {
         return innerSections.count
     }
     
@@ -80,5 +80,5 @@ extension Manager : AdapterInput {
     public func item(at indexPath: IndexPath) -> ItemProtocol {
         let section = innerSections[indexPath.section] as! SectionProtocol
         return section.item(at: indexPath.row)
-    }
+    }*/
 }

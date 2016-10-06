@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MutableOrderedSet<T: AnyObject> {
+class MutableOrderedSet<T> {
     private let innerOrderedSet = NSMutableOrderedSet()
     
     func add(objects array: [T]) {
@@ -25,5 +25,9 @@ class MutableOrderedSet<T: AnyObject> {
     
     func index(of object: T) -> Int {
         return innerOrderedSet.index(of: object)
+    }
+    
+    subscript(index: Int) -> T {
+        return innerOrderedSet[index] as! T
     }
 }
